@@ -1,11 +1,16 @@
 \documentclass{report}
 
+
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage{csquotes}
 \usepackage[a4paper]{geometry}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
 
 \usepackage[
     backend=biber,
@@ -25,13 +30,37 @@
 
 
 \title{Ethik im Umgang mit Daten}
-\author{Name des Autors}
+\author{Levin Kaya}
 \date{\today}
+
 
 
 \begin{document}
 
-\maketitle
+% Hier wird die Titelseite gestaltet.
+\begin{titlepage}
+    \makeatletter % Das hier brauchen wir damit wir spezielle Befehle wie \@author verwenden können.
+	\begin{center}
+		{\scshape Gymnasium Muttenz} \vspace{0.5cm}
+        
+        Informatik 2023/2024\vspace{5.5cm}
+        
+		{\huge\bfseries \@title}
+        
+		\vspace{2cm}
+        \includegraphics[width=0.5\textwidth]{KI.jpg}
+
+		\vspace{2cm}
+
+		{\Large\itshape \@author}
+
+        \vspace{2cm}
+
+        Version vom: \@date
+	\end{center}
+    
+    \makeatother % Wir müssen das @ wieder schliessen, damit der Rest ganz normal funktioniert.
+\end{titlepage}
 
 \abstract{
     Dies ist eine Vorlage für eine Maturarbeit in der Informatik am Gymnasium Muttenz. Sie dient dazu, die Arbeit schnell und einfach zu starten und sollte einen guten Überblick über die Arbeit bieten.
@@ -41,18 +70,48 @@
 
 \chapter{Einleitung}
 
-Hier kommt die Einführung. Der Text hier sollte eigentlich noch viel länger sein, so das hier nicht so merkwürdige Umbrüche entstehen.
 
-Ich kann weitere Kapitel auch importieren.
 
-\input{chap_methode.tex}
+\section{Einleitung}
+Zu Beginn dieser Arbeit werde ich auf die allgemeine Frage, woher die KI ihre Informationen bezieht eingehen und um welche spezifischen Datenquellen es sich dabei handelt. 
+\subsection{Datenfütterung}
+Das sogenannten Large Language Modell (LLM) wird von einer gigantischen Menge an Informationen aus dem Internet gefüttert, darunter milliarden von Büchern, Artikeln, Websites und Posts.
+\subsection{Filterung der Quellen} 
+Die Qualität der Informationen variiert dabei stark, von seriösen Quellen wie beispielsweise wissenschaftlicher Lieratur bis hin zu völlig falschen Angaben aus Foren oder Social Media. Aus diesem Grund werden einige unerwünschte Inhalte, wie ''Wie baut man eine Bombe'' herausgefiltert und nicht beantwortet. Während dieses Prozesses werden zudem doppelte Quellen, sogennante Duplikate gelöscht. Die gesammelten Daten werden bereinigt und in ein Format gebracht, das das Modell verarbeiten kann.
+\subsection{Das Trainieren der KI} 
+Genau auf diese Art und Weise wird also Chat GBT trainiert, sie ist nämlich ein Modell, bei welchem Einträge gemacht werden, so lange, bis sie präzise werden und ziemlich wahrscheinlich der Wahrheit entsprechen. Kleine Abschnitte werden durch viele Schichten dieses Modelles geschickt. Wenn also immer wieder Einträge gemacht werden, kann es so trainiert werden, dass die Antworten, die die KI generiert aus vielen unterschiedlichen basieren und somit immer effizienter und genauer werden. Nutzer:innen können mit einem ChatBot kommunizieren und eine Eingabe erstellen wie z.B. ''Wie verbessere ich meinen Schlaf?'' Nach dem Begriff durchsucht der Bot das Netzwerk und kombiniert dies mit der Eingabe. Er such den Begriff ''Schlaf'' und versucht diesen mit der Eingabe in einen Kontext zu bringen. Seine Rückgabe ist demnach eine Berechnung der Wörter, die am ehesten darauf folgen. Im gewählten Beispiel ''Wie verbessere ich meinen Schlaf'' antwortet die KI vermutlich mit ''regelmässige Schlafzeiten'' als vorhersehbarste Lösung. Die Qualität der Vorhersagen, welche die KI als Lösung zurückgibt werden dadurch berechnet,wie weit die Vorhersagen vom tatsächlichen nächsten Wort entfernt sind.
+Die Gewichte, die Parameter genannt werden durch Optimierungsalgorhytmen angepasst. Das Ziel des Trainierens ist es, über viele Schritte hinweg die Fehler der künstlichen Intelligenz zu reduzieren. Die Gewichtung der Parameter sind ausschlaggebend für das Modell.
 
-\section{Etwas mit Quellen}
+\subsection{Das Validieren und Testen}
+Durchs Validieren kann man beim KI- Modell sicherstellen, dass es sich bei den Rückgaben nichz ausschliesslich um auswenig gelernte Inhalte handelt, sondern dass sie das Muster versteht. Das Ziel ist es, dass es möglichst gut in der Lage ist, auf ähnliche Fragen, auf die es nicht direkt trainiert wurde zu antworten. Die Ersteller hinter dem Ganzen wollen ein Sprachmodell erstellen, welches leistungsfähig und facettenreich ist. Selbst nachdem das Modell vollständig ist wird es auf einem sogenannten seperratem ''Testdatensatz'' geprüft.
 
-Etwas mit Änderung hier am Ende.
 
-Wenn ich eine Quelle zitieren möchte, kann ich das ganze einfach am Ende des Satzes machen \citep{example}. Oder wie \citet{example} sagt, auch mitten im Text.
+\section{Fragestellung}
+Kann man sicherstellen, dass die Antworten, die von einer Künstlichen Intelligenz generiert werden, auf vertrauenswürdigen und nachvollziehbaren Quellen basieren?
 
+
+\section{Kann man sicherstellen, dass die Antworten, die von einer Künstlichen Intelligenz generiert werden, auf vertrauenswürdigen und nachvollziehbaren Quellen basieren, welche ethischen Werte vertritt es und welche Problematiken gehen damit einher?}
+Wie bereits in meiner Einleitung grob beschrieben und in meiner Fragestellung erläutert, werde ich nun explizieter auf die Informationsquellen der KI und der mit sich bringenden Problematiken eingehen. Das Trainieren der KI habe ich bereits erklärt und ebenfalls das es auf die Korrektheit der Quellen keine Garantie gibt. Es gibt jedoch eine weitere Problematik, nämlich der Fakt das die KI- Informationen aus dem Internet extrahiert. Weil der Chatbot sich die Arbeit zu eigen macht, ohne die Urbheber zu entlohnen oder zu nennen, handelt  es sich um ein Raub der Quellen. Zudem veröffentlicht das kalifornische Unternehmen ''Open AI'', das hinter beispielsweise ChatGBT steckt nicht die explizieten Trainingsdaten, die benutzt werden um die KI zu trainieren und es ist auch weiterhin sehr unklar wie der genaue Verlauf der Weiterverarbeitung der Informationen aus dem Netz verläuft. Häufig stellt man auch fest, dass wenn man ChatGBT beispielsweise über aktuellere Tatsachen fragt, es keine so sperzifischen Antworten geben kann. Dies ist darauf zurückzuführen, dass es nur mit Daten bis 2021 gefüttert wurde. Eine weitere Problematik, auf die ich eingehen möchte ist die Tatsache, dass es sehr gefährlich ist, ChatGBT für Bildungs- und Weiterbildungszwecke zu verwendenden, da Falschinformationen weitergegeben werden können. Vorallem bei Primar- und Sekundarschulstoff Inhalten, sollte komplett auf KI verzichtet werden. 
+Bei Chatsbots wie ChatGBT kommt es desöfteren vor, dass falsche oder verwirrende Ausgaben gegeben werden. Bei kleinen Kindern ist es nicht auszuschliessen, dass sie diese Informationen glauben könnten, da sie noch nicht wissen, wie man Informationen kritisch hinterfragt und überprüft. Um zu vermeiden, dass Grundschulkinder diese Falschinformationen in der Schule oder Zuhause verwenden und dadurch falsche Vorstellungen entwickeln, ist es wichtig das man auf die menschlichen Kompetenzen der Lehrkräfte zählen kann und dass diese keine Chatbots mit nicht zurückverfolgbaren Quellen verwenden. In folgender Auflistung habe ich die negativen Aspekte, welche Problematiken hinter der KI darstellen grob aufgelistet, als Übersicht zum Fliesstext.
+\section{Problematiken der KI}
+
+\begin{itemize}
+ 
+    \item Falschinformationen
+    \item Verständnisprobleme
+    \item Fehlende Transparenz
+    \item Urheberechtsverletzung
+    \item Ethik
+    \item  Verlass auf KI, anstatt eigenständigem Lernen
+ 
+\end{itemize}
+
+\section{Fazit}
+In meinem Fazit zur Fragestellung: Kann man sicherstellen, dass die Antworten, die von einer Künstlichen Intelligenz generiert werden, auf vertrauenswürdigen und nachvollziehbaren Quellen basieren, welche ethischen Werte vertritt es und welche Problematiken gehen damit einher? werde ich erläutern, was man als Schlussfolgerung aus meiner Arbeit ziehen kann. Die Nutzung von KI-Modellen wie ChatGPT durch junge Schüler sorgfältig überwacht und reguliert wird. Die Rolle der menschlichen Lehrkräfte bleibt unverzichtbar, um sicherzustellen, dass das Lernen auf fundierten und überprüften Informationen basiert. Eine verantwortungsvolle Integration von KI in den Bildungsbereich erfordert klare Richtlinien und ethische Standards, um die Vorteile dieser Technologie optimal zu nutzen und gleichzeitig die Risiken zu minimieren. Ein weiteres Problem ist, dass Unternehmen wie OpenAI nicht wirklich transparent sind, was die Nutzung und Verarbeitung von Daten angeht. Man weiß nicht genau, welche Trainingsdaten sie verwenden, und das ist ethisch fragwürdig. Es könnte auch sein, dass sie gegen Urheberrechte verstoßen, weil sie Inhalte aus dem Internet nutzen, ohne die ursprünglichen Autoren zu nennen oder zu bezahlen. Das wirft viele Fragen auf, ob das überhaupt okay und legal ist.
+Schlussendlich können wir, als Nutzer der KI nicht wissen, ob es sich bei den gegeben Informationen wirklich um die Wahrheit handelt oder es nicht auch sein könnte, dass diese so manipuliert wurden, dass uns die Informationen weitergegeben oder vorenthalten werden, die die Ersteller selbst vertreten.
+
+
+\nocite{*}
 \printbibliography
 
 \end{document}
